@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Manipulando o DOM com React!</title>
+
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  </head>
+  <body>
+    <div id="app"></div>
+
+    <script type="text/babel">
+      const app = document.getElementById("app");
+      const root = ReactDOM.createRoot(app);
+
+      /*
+        Neste exemplo vamos separar tudo em componentes.
+        Como estamos trabalhando aqui com a versão do menor exemplo do React, sem uma estrutura como o Vite ou o "create react app", nós iremos estar trabalhando no index.html.
+        Então nomearemos novamente a nossa função como App, como a função principal(que somente terá a função de chamar os demais componentes) e separaremos as seções principais: header, main e footer em componentes.
+      */
+
+      function Header() {
+        return (
+          <header>
+            <img src="./images/react-logo.png" alt="Logo React" width="80px" />
+          </header>
+        );
+      }
+
+      function Main() {
+        return (
+          <main>
+            <MainTitle />
+            <MainList />
+          </main>
+        );
+      }
+
+      function MainTitle() {
+        return <h1>Motivos para aprender React</h1>;
+      }
+
+      function MainList() {
+        return (
+          <ol>
+            <li>Fácil de aprender</li>
+            <li>Biblioteca muito popular em alta no mercado</li>
+            <li>
+              Tenho mais chances de conseguir um emprego como desenvolvedor se
+              eu sei React
+            </li>
+          </ol>
+        );
+      }
+
+      function Footer() {
+        return (
+          <footer>
+            <small>
+              @ 2024 FAST - CESAR School. Todos os direitos reservados.
+            </small>
+          </footer>
+        );
+      }
+
+      function App() {
+        return (
+          <>
+            <Header />
+            <Main />
+            <Footer />
+          </>
+        );
+      }
+
+      root.render(<App />);
+    </script>
+  </body>
+</html>
